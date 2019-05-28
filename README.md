@@ -3,8 +3,8 @@ Flink running in HA mode in Kubernetes
 
 Inspired by the following work:
 
-- [Running Apache Flink on Kubernetes](https://jobs.zalando.com/tech/blog/running-apache-flink-on-kubernetes/)
-- ["Flink in Containerland" by Patrick Lucas](https://www.youtube.com/watch?v=w721NI-mtAA)
+- [Running Apache Flink on Kubernetes](https://jobs.zalando.com/tech/blog/running-apache-flink-on-kubernetes/) by Tobias Bahls
+- ["Flink in Containerland"](https://www.youtube.com/watch?v=w721NI-mtAA)  by Patrick Lucas
 
 ## Bootstrap zetcd / Zookeeper
 
