@@ -14,7 +14,7 @@ If you wish to avoid the potential overhead of running Zookeeper in Kubernetes, 
 
 In order to deploy zetcd before starting the Flink cluster, run:
 
-`kubectl create -f zetcd-deployment.yaml`
+`kubectl apply -f zetcd-deployment.yaml`
 
 Alternatively you can set up Zookeeper in Kubernetes using the following instructions https://kubernetes.io/docs/tutorials/stateful-application/zookeeper/
 
@@ -39,18 +39,18 @@ Alternatively, copy the template files (suffixed with `*.template`) and replace 
 
 In order to deploy the job manager run:
 
-`FLINK_IMAGE_NAME=<IMAGE_NAME> FLINK_JOB_PARALLELISM=<PARALLELISM> envsubst < job-manager-deployment.yaml.template | kubectl create -f -`
+`FLINK_IMAGE_NAME=<IMAGE_NAME> FLINK_JOB_PARALLELISM=<PARALLELISM> envsubst < job-manager-deployment.yaml.template | kubectl apply -f -`
 
 Now you should see the `flink-job-manager` deployment being started by calling `kubectl get deployment`.
 
 You should then create the job manager service:
 
-`kubectl create -f job-manager-service.yaml`
+`kubectl apply -f job-manager-service.yaml`
 
 Then you should start the task manager deployment:
 
-`FLINK_IMAGE_NAME=<IMAGE_NAME> FLINK_JOB_PARALLELISM=<PARALLELISM> envsubst < task-manager-deployment.yaml.template | kubectl create -f -`
+`FLINK_IMAGE_NAME=<IMAGE_NAME> FLINK_JOB_PARALLELISM=<PARALLELISM> envsubst < task-manager-deployment.yaml.template | kubectl apply -f -`
 
 At last, create the job to run on the cluster:
 
-`FLINK_IMAGE_NAME=<IMAGE_NAME> envsubst < job.yaml.template | kubectl create -f -`
+`FLINK_IMAGE_NAME=<IMAGE_NAME> envsubst < job.yaml.template | kubectl apply -f -`
